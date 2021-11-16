@@ -1,4 +1,7 @@
-from general_data_anim_things import gen_utils
+# from kmeans import KMeansClustering
+import sys
+sys.path.insert(1,"src/animation")
+# from general_data_anim_things import gen_utils
 from manim import *
 import csv
 import numpy as np
@@ -6,63 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class KMeansClustering:
-
-    def __init__(self, k):
-        self.k = k
-        self.centers = None
-        self.clusters = None
-        self.cluster_vals = []
-        self.center_vals = []
-
-    def plot_state(self, X):
-        plt.scatter(X[:, 0], X[:, 1], c=self.clusters)
-        plt.scatter(self.centers[:, 0], self.centers[:, 1], c='r', s=70)
-        plt.grid()
-
-    def fit(self, X, runs=10, plot=False, plot_final=True, num_iter=100, plot_freq=0.1):
-        best_var = 10**9
-        for _ in range(runs):
-            fail = False
-            centers = np.random.randn(self.k, X.shape[1]) * 3
-            for iter_ in range(num_iter):
-                arr = np.zeros((X.shape[0], self.k))
-                for i, center in enumerate(centers, 0):
-                    arr[:, i] = (((X - center) ** 2).sum(axis=1) ** 0.5)
-
-                self.clusters = np.argmin(arr, axis=1)
-                self.cluster_vals.append(self.clusters)
-
-                if plot and iter_ % int(num_iter * plot_freq) == 0:
-                    self.plot_state(X)
-                    plt.title("Iteration " + str(iter_))
-                    plt.show()
-
-                for cno in range(self.k):
-                    try:
-                        centers[cno] = X[self.clusters == cno, :].mean(axis=0)
-                    except:
-                        fail = True
-                        break
-                self.center_vals.append(np.copy(centers))
-
-            if fail:
-                continue
-
-            var = 0
-            for center in centers:
-                var += np.mean(((X - center) ** 2)) ** 0.5
-            if var < best_var:
-                best_var = var
-                self.centers = centers
-
-        if plot_final and not fail:
-            self.plot_state(X)
-            plt.title("Iteration " + str(iter_ + 1))
-            plt.show()
-
-
-class KMeansAnim(Scene,gen_utils):
+class KMeansAnim(Scene):
     CONFIG = {
         "x_min": -5,
         "x_max": 5,
@@ -75,12 +22,18 @@ class KMeansAnim(Scene,gen_utils):
 
     # CLUSTER_COLORS = [RED, GREEN, BLUE]
 
-    def __init__(self, **kwargs):
+    def __init__(self,dir_to_data,**kwargs):
         self.coords = []
-        self.load_data('test_dat.csv')
+        self.load_data(dir_to_data)
         self.num_iter = 8
         Scene.__init__(self, **kwargs)
-
+    def load_data(self, dir_to_data):
+        with open(f'{dir_to_data}', 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                x, y = row
+                self.coords.append([float(x)/3, float(y)/3, 0])
+        file.close()
     def gen_dots(self, t_stamp,colors=[RED,GREEN,BLUE]):
         ret = []
         self.colors=colors
@@ -180,7 +133,14 @@ class KMeansAnim(Scene,gen_utils):
             self.wait(0.5)
 
 
-    def run_kmeans(self):
-        self.model = KMeansClustering(3)
-        self.model.fit(np.array(self.coords)[:, :2], plot_final=False,
-                       num_iter=self.num_iter, runs=1)
+    # def run_kmeans(self,model):
+    #     # self.model = KMeansClustering(3)
+    #     self.model=model
+    #     print(np.array(self.coords)[:, :2])
+    #     self.model.fit(np.array(self.coords)[:, :2], plot_final=False,
+    #                    num_iter=self.num_iter, runs=1)
+
+
+if __name__=="__main__":
+    c=KMeansAnim("test_dat.csv")
+    c.run_kmeans()                       

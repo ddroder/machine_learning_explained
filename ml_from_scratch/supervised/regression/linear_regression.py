@@ -57,8 +57,11 @@ class linear_regression_model:
             self.simple_dataset()
         else:
             self.dataset=dataset
-        x=[row[0]for row in self.dataset]
-        y=[row[1]for row in self.dataset]
+        if isinstance(dataset, list):
+            x=[row[0]for row in self.dataset]
+            y=[row[1]for row in self.dataset]
+        else:
+            raise TypeError("Be sure you pass in a list of lists of data.")
         x_mean=self.mean(x)
         y_mean=self.mean(y)
         self.b1=self.covariance(x,x_mean,y,y_mean)/self.variance(x,x_mean)
@@ -82,5 +85,5 @@ if __name__=="__main__":
     c=linear_regression(help=True,math_breakdown=True)
     c.simple_dataset()
     c.train()
-    print(c.predict([[1,3]]))
+    print(c.predict([[1,3]]))   
     print(c.steps)

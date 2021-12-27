@@ -1,3 +1,6 @@
 media/*
+src/unsupervised/kmeans/media/Tex
+src/unsupervised/kmeans/media/videos
+src/unsupervised/kmeans/media/images
 *.csv
 *.pyc

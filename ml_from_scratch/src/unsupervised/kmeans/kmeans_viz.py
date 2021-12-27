@@ -1,4 +1,4 @@
-# from kmeans import KMeansClustering
+from kmeans import KMeansClustering
 import sys
 sys.path.insert(1,"src/animation")
 # from general_data_anim_things import gen_utils
@@ -133,14 +133,14 @@ class KMeansAnim(Scene):
             self.wait(0.5)
 
 
-    # def run_kmeans(self,model):
-    #     # self.model = KMeansClustering(3)
-    #     self.model=model
-    #     print(np.array(self.coords)[:, :2])
-    #     self.model.fit(np.array(self.coords)[:, :2], plot_final=False,
-    #                    num_iter=self.num_iter, runs=1)
+    def run_kmeans(self):
+        self.model = KMeansClustering(3)
+        # self.model=model
+        print(np.array(self.coords)[:, :2])
+        self.model.fit(np.array(self.coords)[:, :2], plot_final=False,
+                       num_iter=self.num_iter, runs=1)
 
 
 if __name__=="__main__":
     c=KMeansAnim("test_dat.csv")
-    c.run_kmeans()                       
+    c.run_kmeans()

@@ -8,7 +8,7 @@ While building the algorithms, it will give step by step instructions as to what
 First, we must install the library. This can be done by running:
 ```
 pip3 install ml-from-scratch
-```
+```code-oss://vscode.github-authentication/did-authenticate?windowid=1&code=31f84edb6621cb70a74b&state=a3943163-b715-471e-a857-a2ca294fa63f
 
 
 # Usage

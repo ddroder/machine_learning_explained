@@ -4,3 +4,4 @@ src/unsupervised/kmeans/media/videos
 src/unsupervised/kmeans/media/images
 *.csv
 *.pyc
+testinbg.py

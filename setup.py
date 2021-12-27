@@ -6,4 +6,5 @@ setup(
     description='A machine learning library where the focus is on you learning not the machine!',
     author='Daniel Droder',
     license='MIT',
+    install_requires=['numpy','pandas']
 )

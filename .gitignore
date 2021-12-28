@@ -2,3 +2,9 @@ media/*
 ml_from_scratch.egg-info/*
 *.csv
 *.pyc
+src/unsupervised/kmeans/media/Tex
+src/unsupervised/kmeans/media/videos
+src/unsupervised/kmeans/media/images
+*.csv
+*.pyc
+testinbg.py

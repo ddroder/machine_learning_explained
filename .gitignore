@@ -1,3 +1,4 @@
 media/*
+ml_from_scratch.egg-info/*
 *.csv
 *.pyc

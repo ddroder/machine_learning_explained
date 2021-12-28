@@ -42,6 +42,8 @@ class decision_tree:
                 if gini < b_score:
                     b_index, b_value, b_score, b_groups = index, row[index], gini, groups
         return {'index':b_index, 'value':b_value, 'groups':b_groups}
+    def sparse(self):
+        print("im alive")
 if __name__=="__main__":
     dataset = [[2.771244718,1.784783929,0],
 	[1.728571309,1.169761413,0],

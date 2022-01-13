@@ -7,7 +7,7 @@ While building the algorithms, it will give step by step instructions as to what
 # Installation 
 First, we must install the library. This can be done by running:
 ```
-pip3 install ml-from-scratch
+pip3 install ml-but-explained
 ```
 
 

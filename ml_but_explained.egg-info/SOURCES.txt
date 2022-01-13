@@ -1,0 +1,25 @@
+README.md
+setup.cfg
+setup.py
+ml_but_explained/__init__.py
+ml_but_explained.egg-info/PKG-INFO
+ml_but_explained.egg-info/SOURCES.txt
+ml_but_explained.egg-info/dependency_links.txt
+ml_but_explained.egg-info/requires.txt
+ml_but_explained.egg-info/top_level.txt
+ml_but_explained/src/__init__.py
+ml_but_explained/src/manim_learning.py
+ml_but_explained/supervised/__init__.py
+ml_but_explained/supervised/decision_trees.py
+ml_but_explained/supervised/knn.py
+ml_but_explained/supervised/regression/__init__.py
+ml_but_explained/supervised/regression/knn_regression.py
+ml_but_explained/supervised/regression/linear_regression.py
+ml_but_explained/unsupervised/__init__.py
+ml_but_explained/unsupervised/kmeans copy/__init__.py
+ml_but_explained/unsupervised/kmeans copy/km.py
+ml_but_explained/unsupervised/kmeans copy/kmeans.py
+ml_but_explained/unsupervised/kmeans copy/kmeans_viz.py
+ml_but_explained/unsupervised/kmeans copy/test_kmeans.py
+ml_but_explained/utils/__init__.py
+ml_but_explained/utils/preprocessing.py

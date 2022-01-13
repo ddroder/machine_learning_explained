@@ -7,4 +7,6 @@ src/unsupervised/kmeans/media/videos
 src/unsupervised/kmeans/media/images
 *.csv
 *.pyc
-testinbg.py
+# /kmeans copy/*
+# ml_from_scratch/unsupervised/kmeans copy/__init__.py
+ml_from_scratch/unsupervised/kmeans copy/*.py

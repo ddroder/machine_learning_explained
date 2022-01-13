@@ -1,4 +1,5 @@
 README.md
+setup.cfg
 setup.py
 ml_from_scratch/__init__.py
 ml_from_scratch.egg-info/PKG-INFO
@@ -9,12 +10,16 @@ ml_from_scratch.egg-info/top_level.txt
 ml_from_scratch/src/__init__.py
 ml_from_scratch/src/manim_learning.py
 ml_from_scratch/supervised/__init__.py
+ml_from_scratch/supervised/decision_trees.py
 ml_from_scratch/supervised/knn.py
 ml_from_scratch/supervised/regression/__init__.py
+ml_from_scratch/supervised/regression/knn_regression.py
 ml_from_scratch/supervised/regression/linear_regression.py
 ml_from_scratch/unsupervised/__init__.py
-ml_from_scratch/unsupervised/kmeans/__init__.py
-ml_from_scratch/unsupervised/kmeans/km.py
-ml_from_scratch/unsupervised/kmeans/kmeans.py
-ml_from_scratch/unsupervised/kmeans/kmeans_viz.py
-ml_from_scratch/unsupervised/kmeans/test_kmeans.py
+ml_from_scratch/unsupervised/kmeans copy/__init__.py
+ml_from_scratch/unsupervised/kmeans copy/km.py
+ml_from_scratch/unsupervised/kmeans copy/kmeans.py
+ml_from_scratch/unsupervised/kmeans copy/kmeans_viz.py
+ml_from_scratch/unsupervised/kmeans copy/test_kmeans.py
+ml_from_scratch/utils/__init__.py
+ml_from_scratch/utils/preprocessing.py

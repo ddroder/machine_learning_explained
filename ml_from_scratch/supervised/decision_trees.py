@@ -2,10 +2,6 @@ from collections import Counter
 import numpy as np 
 
 
-def entropy(y):
-    hist=np.bincount(y) #num occurances of all class labels
-    ps=hist / len(y)
-    return -np.sum([p*np.log2(p) for p in ps if p > 0]) #need to check if less than zero since log for negative numbers in nan
 
 class node:
     """
@@ -27,6 +23,11 @@ class decision_tree:
         self.root = None
         self.help=help
         self.text=""
+
+    def entropy(self,y):
+        hist=np.bincount(y) #num occurances of all class labels
+        ps=hist / len(y)
+        return -np.sum([p*np.log2(p) for p in ps if p > 0]) #need to check if less than zero since log for negative numbers in nan
 
     def fit(self, X, y):
         self.n_feats = X.shape[1] if not self.n_feats else min(self.n_feats, X.shape[1])
@@ -82,7 +83,7 @@ class decision_tree:
 
     def _information_gain(self, y, X_column, split_thresh):
         # parent loss
-        parent_entropy = entropy(y)
+        parent_entropy = self.entropy(y)
 
         # generate split
         left_idxs, right_idxs = self._split(X_column, split_thresh)
@@ -93,7 +94,7 @@ class decision_tree:
         # compute the weighted avg. of the loss for the children
         n = len(y)
         n_l, n_r = len(left_idxs), len(right_idxs)
-        e_l, e_r = entropy(y[left_idxs]), entropy(y[right_idxs])
+        e_l, e_r = self.entropy(y[left_idxs]), self.entropy(y[right_idxs])
         child_entropy = (n_l / n) * e_l + (n_r / n) * e_r
 
         # information gain is difference in loss before vs. after split
